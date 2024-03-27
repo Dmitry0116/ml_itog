@@ -11,10 +11,10 @@ def test_read_main():
 
 
 def test_predict_joy():
-    print ("прочитай меня")
     response = client.post("/predict/",
                            json={"text": "Будьте благополучны и радостны, и передайте мне на расстоянии, чтобы я знал, что с Вами все хорошо."})
     json_data = response.json()
+    print (json_data['label'])
     assert response.status_code == 200
     assert json_data['label'] == 'joy'
 
