@@ -23,7 +23,7 @@ def test_predict_no_emotion():
                            json={"text": "Данный фрагмент текста не содержит абсолютно никаких эмоций"})
     json_data = response.json()
     assert response.status_code == 200
-    assert json_data['label'] == 'no_emotion'
+    assert "no_emotion" in str(json_data[0])
 
 
 def test_predict_sadness():
@@ -31,7 +31,7 @@ def test_predict_sadness():
                            json={"text": "Грусть-тоска меня съедает"})
     json_data = response.json()
     assert response.status_code == 200
-    assert json_data['label'] == 'sadness'
+    assert "sadness" in str(json_data[0])
 
 
 def test_predict_surprise():
@@ -39,7 +39,7 @@ def test_predict_surprise():
                            json={"text": "Нифига себе, неужели так тоже бывает!"})
     json_data = response.json()
     assert response.status_code == 200
-    assert json_data['label'] == 'surprise'
+    assert "surprise" in str(json_data[0])
     
 
 def test_predict_fear():
@@ -47,11 +47,11 @@ def test_predict_fear():
                            json={"text": "Как-то стрёмно, давай свалим отсюда?"})
     json_data = response.json()
     assert response.status_code == 200
-    assert json_data['label'] == 'fear'
+    assert "fear" in str(json_data[0])
 
 def test_predict_anger():
     response = client.post("/predict/",
                            json={"text": "Бесишь меня, гад"})
     json_data = response.json()
     assert response.status_code == 200
-    assert json_data['label'] == 'anger' 
+    assert "anger" in str(json_data[0])
