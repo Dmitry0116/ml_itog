@@ -18,9 +18,9 @@ if submit:
     result = clf(user_input)
 
     for res in result:
-        label = res["label"]
+        emotion = res["label"]
         score = res["score"]
-        st.success(f"{label} sentiment (score: {score})")
+        st.success(f"{emotion} sentiment (score: {score})")
 
 
 class Item(BaseModel):
