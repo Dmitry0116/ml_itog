@@ -14,9 +14,8 @@ def test_predict_joy():
     response = client.post("/predict/",
                            json={"text": "Будьте благополучны и радостны, и передайте мне на расстоянии, чтобы я знал, что с Вами все хорошо."})
     json_data = response.json()
-    print ("joy" in str(json_data[0]))
     assert response.status_code == 200
-    assert json_data['label'] == 'joy'
+    assert "joy" in str(json_data[0])
 
 
 def test_predict_no_emotion():
