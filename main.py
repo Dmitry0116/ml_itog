@@ -19,8 +19,8 @@ if submit:
 
     for res in result:
         emotion = res["label"]
-        score = res["score"]
-        st.success(f"{emotion} sentiment (score: {score})")
+        result = res["score"]
+        st.success(f"{emotion} sentiment (score: {result})")
 
 
 class Item(BaseModel):
